@@ -10,6 +10,7 @@ import { Habits } from './pages/Habits';
 import { Journal } from './pages/Journal';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
+import { ProjectDetails } from './pages/ProjectDetails';
 
 // Placeholder for Tasks with Cozy Styling
 function TasksPlaceholder() {
@@ -51,6 +52,7 @@ export default function App() {
 
         <Route path="/" element={<Layout />}>
           <Route index element={<Dashboard />} />
+          <Route path="projects/:projectId" element={<ProjectDetails />} />
           <Route path="tasks" element={<TasksPlaceholder />} />
           <Route path="habits" element={<Habits />} />
           <Route path="journal" element={<Journal />} />
