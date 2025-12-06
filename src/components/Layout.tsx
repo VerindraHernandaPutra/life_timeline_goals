@@ -2,14 +2,20 @@ import { AppShell, Burger, Group, ScrollArea, Avatar, Text, UnstyledButton } fro
 import { useDisclosure } from '@mantine/hooks';
 import { 
   Folder, LayoutDashboard, CheckSquare, Coffee, BookHeart, 
-  Settings 
+  Settings, LogOut
 } from 'lucide-react';
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { ThemeToggle } from './ThemeToggle';
 
 export function Layout() {
   const [opened, { toggle }] = useDisclosure();
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Perform logout logic here (e.g., clear tokens)
+    navigate('/login');
+  };
 
   const navItems = [
     { label: 'Dashboard', icon: LayoutDashboard, path: '/' },
@@ -88,10 +94,14 @@ export function Layout() {
             </div>
           </ScrollArea>
 
-          <div className="border-t border-stone-100 dark:border-stone-800 pt-4 mt-4">
+          <div className="border-t border-stone-100 dark:border-stone-800 pt-4 mt-4 space-y-1">
              <UnstyledButton className="w-full flex items-center gap-2 px-3 py-2 text-sm text-stone-400 dark:text-stone-500 hover:text-stone-700 dark:hover:text-stone-300 transition-colors">
                 <Settings size={16} />
                 <span>Settings</span>
+             </UnstyledButton>
+             <UnstyledButton onClick={handleLogout} className="w-full flex items-center gap-2 px-3 py-2 text-sm text-stone-400 dark:text-stone-500 hover:text-red-600 dark:hover:text-red-400 transition-colors">
+                <LogOut size={16} />
+                <span>Logout</span>
              </UnstyledButton>
           </div>
         </div>

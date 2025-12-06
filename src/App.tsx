@@ -9,6 +9,7 @@ import { Dashboard } from './pages/Dashboard';
 import { Habits } from './pages/Habits';
 import { Journal } from './pages/Journal';
 import { Login } from './pages/Login';
+import { Register } from './pages/Register';
 
 // Placeholder for Tasks with Cozy Styling
 function TasksPlaceholder() {
@@ -46,6 +47,7 @@ export default function App() {
       <ColorSchemeSync />
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
         <Route path="/" element={<Layout />}>
           <Route index element={<Dashboard />} />
